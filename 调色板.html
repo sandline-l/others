@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 400px;
+            height: 400px;
+            border: 1px solid black;
+        }
+        .text{
+            display: inline-block;
+            width: 150px;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>调色板</h2>
+    <div id="box">
+    </div>
+    <div>
+        <div id="redbox">
+            <span class="text">设置红色占比:</span>
+            <input type="range" id="red" max="255">
+            <span></span>
+        </div>
+        <div id="greenbox">
+            <span class="text">设置绿色占比:</span>
+            <input type="range" id="green" max="255">
+            <span></span>
+        </div>
+        <div id="bluebox">
+            <span class="text">设置蓝色占比:</span>
+            <input type="range" id="blue" max="255">
+            <span></span>
+        </div>
+        <div id="opacity">
+            <span class="text">设置透明度:</span>
+            <input type="range" id="tou" max="100">
+            <span></span>
+        </div>
+        <div class="show">
+            <input type="text">
+        </div>
+    </div>
+
+    <script>
+
+        (function () {
+            var show = document.getElementsByClassName('show')[0];
+            var showInput = show.getElementsByTagName('input')[0];
+            var box = document.getElementById('box');
+            //处理红色输入
+            var redbox = document.getElementById('redbox');
+            var red = document.getElementById('red');
+            var rspan = redbox.getElementsByTagName('span')[1];
+            redbox.addEventListener('change', function () {
+                var value = red.value;
+                rspan.innerText = value;
+                change()
+            })
+            //处理绿色输入
+            var greenbox = document.getElementById('greenbox');
+            var green = document.getElementById('green');
+            var gspan = greenbox.getElementsByTagName('span')[1];
+            greenbox.addEventListener('change', function () {
+                var value = green.value;
+                gspan.innerText = value;
+                change()
+            })
+            //处理蓝色输入
+            var bluebox = document.getElementById('bluebox');
+            var blue = document.getElementById('blue');
+            var bspan = bluebox.getElementsByTagName('span')[1];
+            bluebox.addEventListener('change', function () {
+                var value = blue.value;
+                bspan.innerText = value;
+                change()
+            })
+            //处理透明度
+            var opacity = document.getElementById('opacity');
+            var tou = document.getElementById('tou');
+            var tspan = opacity.getElementsByTagName('span')[1];
+            opacity.addEventListener('change', function () {
+                var value = +tou.value / 100;
+                tspan.innerText = value.toFixed(1);
+                change()
+            })
+            //初始化
+            function init() {
+                //获取初始值
+                var redvalue = red.value;
+                var greenvalue = green.value;
+                var bluevalue = blue.value;
+                var opvalue = +tou.value / 100;
+                change()
+                getValue()
+                //初始化样式
+                bspan.innerText = bluevalue;
+                gspan.innerText = greenvalue;
+                rspan.innerText = redvalue;
+                tspan.innerText = opvalue;
+            }
+            init()
+            //获取所有的值 函数
+            function getValue(){
+                var redvalue = red.value;
+                var greenvalue = green.value;
+                var bluevalue = blue.value;
+                var opvalue = +tou.value / 100;
+                var num = opvalue.toFixed(1);
+                showInput.value = `rgba(${redvalue},${greenvalue},${bluevalue},${num})`
+                // showInput.value = 'nihao'
+            }
+            //更改样式函数
+            function change() {
+                var redvalue = red.value;
+                var greenvalue = green.value;
+                var bluevalue = blue.value;
+                var opvalue = +tou.value / 100;
+                var num = opvalue.toFixed(1);
+                box.style.backgroundColor = `rgba(${redvalue},${greenvalue},${bluevalue},${num})`
+            }
+        })()
+
+        var log = console.log.bind(console)
+
+    </script>
+
+
+
+
+
+</body>
+
+</html>
