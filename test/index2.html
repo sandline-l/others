@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        :root,
+        body {
+            font-size: 16px;
+
+        }
+
+        @media screen and (min-width:1200px) {
+
+            :root,
+            body {
+                font-size: 16px;
+            }
+
+            .one {
+                width: 16%;
+            }
+        }
+
+        @media screen and (max-width:1200px) and (min-width:960px) {
+
+            :root,
+            body {
+                font-size: 20px;
+            }
+
+            .one {
+                width: 30%;
+            }
+        }
+
+        @media screen and (max-width:960px) and (min-width:500px) {
+            :root,
+            body {
+                font-size: 30px;
+            }
+
+            .one {
+                width: 45%;
+            }
+        }
+        @media screen and (max-width:500px) {
+            .one {
+                width: 60%;
+            }
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        div.wrap {
+            width: 100%;
+            border: 1px solid red;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+
+        .box {
+            width: 80%;
+            margin: 50px auto;
+            border: 1px solid black;
+            font-size: 1rem;
+        }
+
+        .content {
+            width: 40%;
+            float: left;
+            border: 1px solid black;
+        }
+
+        .content img {
+            max-width: 100%;
+        }
+
+        .imgbox {
+            width: 80%;
+            margin: 1rem auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .one {
+            /* width: 30%; */
+            height: 5rem;
+            border: 1px solid rgb(95, 155, 5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="box">
+            这是否是在服务器上呢?
+        </div>
+        <div class="content">
+            <img src="./img/pic1.jpg" alt="">
+        </div>
+        <!-- <div class="content">
+            <p>这是一段测试的内容, 你可以看看是否是自适应的这是一段测试的内容,
+                你可以看看是否是自适应的这是一段测试的内容, 你可以看看是否是自适应的
+                这是一段测试的内容, 你可以看看是否是自适应的
+                这是一段测试的内容, 你可以看看是否是自适应的
+                这是一段测试的内容, 你可以看看是否是自适应的
+                这是一段测试的内容, 你可以看看是否是自适应的
+                这是一段测试的内容, 你可以看看是否是自适应的
+                这是一段测试的内容, 你可以看看是否是自适应的
+            </p>
+        </div> -->
+        <div class="imgbox">
+            <div class="one"></div>
+            <div class="one"></div>
+            <div class="one"></div>
+            <div class="one"></div>
+            <div class="one"></div>
+            <div class="one"></div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
